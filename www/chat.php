@@ -8,24 +8,36 @@
     <link rel="stylesheet" href="./css/chat.css">
 </head>
 
-<body>
-    <?php
-    session_start();
-    if ($_SESSION["username"] == "admin") {
-        ?>
-        <form action="register.php" method="post">
-            <button class="button" type="submit" name="submit">Register New User</button>
-        </form>
-        <?php
-    }
-    ?>
-    <div class="chat">
-        <div>
-            <ul>
 
-            </ul>
+<?php
+session_start();
+if (!empty($_SESSION["username"])) {
+    ?>
+
+    <body>
+        <?php
+        if ($_SESSION["username"] == "admin") {
+            ?>
+            <form action="register.php" method="post">
+                <button class="button" type="submit" name="submit">Register New User</button>
+            </form>
+            <?php
+        }
+        ?>
+        <div class="chat">
+            <div>
+                <ul>
+
+                </ul>
+            </div>
         </div>
-    </div>
+        <?php
+} else {
+    ?>
+        <h1>Not logged in</h1>
+        <?php
+}
+?>
 </body>
 
 </html>
