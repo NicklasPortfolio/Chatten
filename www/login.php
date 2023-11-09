@@ -1,6 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once("../config/db_config_mysqli.php");
+    session_start();
 
     $username = filter_input(INPUT_POST, "Username", FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, "Password", FILTER_SANITIZE_STRING);
@@ -16,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hash = $row["password"];
 
         if (password_verify($password, $hash)) {
-            session_start();
             $_SESSION["username"] = $row["username"];
             header("Location: ./chat.php");
             exit();

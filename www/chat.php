@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatten</title>
     <link rel="stylesheet" href="./css/chat.css">
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+</head>
 
 <?php
 session_start();
@@ -24,13 +26,18 @@ if (isset($_SESSION["username"])) {
             <?php
         }
         ?>
-        <div class="chat">
-            <div>
-                <ul>
-
-                </ul>
-            </div>
-        </div>
+        <section class="container">
+            <table class="table table-dark">
+                <tbody>
+                    <?php foreach ($results as $result) { ?>
+                        <tr>
+                            <th scope="row">
+                                <?= $result[""] ?>
+                            </th>
+                        </tr>
+                </tbody>
+            </table>
+        </section>
         <?php
 } else {
     ?>
@@ -38,6 +45,9 @@ if (isset($_SESSION["username"])) {
         <?php
 }
 ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
