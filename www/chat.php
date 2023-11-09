@@ -11,7 +11,7 @@
 
 <?php
 session_start();
-if (!empty($_SESSION["username"])) {
+if (isset($_SESSION["username"])) {
     ?>
 
     <body>

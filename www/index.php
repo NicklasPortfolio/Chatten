@@ -1,3 +1,8 @@
+<?php
+session_start();
+$_SESSION["username"] = null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
